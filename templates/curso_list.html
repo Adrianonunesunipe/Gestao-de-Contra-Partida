@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+<!-- Início do conteúdo da página -->
+
+{% block main %}
+<div class="container-fluid">
+    <!-- Cabeçalho da página -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class="form-group col-md-4">
+            <h1 class="h3 mb-0 text-gray-800" style="">Tabela dos Cursos</h1>
+        </div>
+
+
+        <div class="input-group" style="flex-direction: row-reverse">
+            <div class="input-group-append">
+                <button class="btn btn-primary" style="border-radius: 0px 5px 5px 0px;" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+            <input type="text" class="form-control bg-light border-1 small col-4"
+                   style="border-radius: 5px 0px 0px 5px;" placeholder="Procurar por..." aria-label="Search"
+                   aria-describedby="basic-addon2">
+        </div>
+    </div>
+    <br>
+    <!-- Tabela -->
+    <div class="form-group col-md-12">
+        <table class="table table-striped">
+            <thead class="thead-btn btn-primary">
+            <tr>
+                <th scope="col">Nome do Curso</th>
+                <th scope="col"></th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for curso in object_list %}
+            <tr>
+
+                <td><a href="{% url 'cursodetail' curso.id %}">{{ curso.Curso }}</a></td>
+                <td><a class="fas fa-trash" href="{% url 'cursodelete' curso.id %}"></a></td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+<!-- Fim da Tabela -->

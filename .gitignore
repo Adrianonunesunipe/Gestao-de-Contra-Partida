@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+venv
+*pyc
+.idea
+.vscode
+migrations
+db.sqlite3

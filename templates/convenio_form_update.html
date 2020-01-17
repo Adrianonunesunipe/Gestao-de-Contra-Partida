@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap %}
+
+{% block title %}Atualizar{% endblock %}
+
+{% block main %}
+<section class="aw-layout-content  js-content">
+    <form method="POST" style="padding-top:70px">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Alterar Informações:</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.Concedente|bootstrap }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.CNPJ|bootstrap }}
+                </div>
+
+                <div class="form-group col-md-6">
+                    {{ form.Razao_Social|bootstrap }}
+                </div>
+
+                <div class="form-group col-md-6">
+                    {{ form.Unidade_Executora|bootstrap }}
+                </div>
+
+                <div class="form-group col-md-6">
+                    {{ form.Endereco|bootstrap }}
+                </div>
+
+                <div class="form-group col-md-6">
+                    {{ form.Telefone|bootstrap }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.Email|bootstrap }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.Representante|bootstrap }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.Tipo_de_Estabelecimento|bootstrap }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.Descricao|bootstrap }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.Condicoes|bootstrap }}
+                </div>
+                 <div class="form-group col-md-4">
+                    {{form.Data_Termino|bootstrap}}
+                </div>
+
+            </div>
+            <button class="btn btn-primary" type="submit">Alterar</button>
+            <a class="btn btn-primary" href="{% url 'conveniodetail' convenio.id %}">Voltar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

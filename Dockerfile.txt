@@ -1,0 +1,10 @@
+FROM python:3.6
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /main
+WORKDIR /main
+ADD requirements.txt /main/
+ENV http_proxy="http://10.10.32.1:3128"
+ENV https_proxy="http://10.10.32.1:3128"
+ENV https_proxy="http://:bkuounipe45@10.10.32.1:3128"
+RUN pip install -r requirements.txt
+ADD . /CodeShare/
